@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="col">
+    <div class="controls">
+      <select name="gameMode" [(ngModel)]="currentGameMode">
+        <option value="">Pick game mode</option>
+        <option *ngFor="let mode of gameModes" [value]="mode">{{mode}}</option>
+      </select>
+      <input type="text" placeholder="Enter your name" [(ngModel)]="playerName">
+      <button [disabled]="!currentGameMode || !playerName || gameStarted"
+              (click)="playGame(currentGameMode, playerName)">{{gameFinished ? 'Play again' : 'Play'}}</button>
+    </div>
+
+    <p *ngIf="statusMessage" class="status-message">{{statusMessage}}</p>
+
+    <div class="game-field" *ngIf="currentGameMode">
+      <div *ngFor="let row of getFieldRange(gameSettings[currentGameMode].field); let rowI = index" class="game-field-row">
+        <div *ngFor="let cell of getFieldRange(gameSettings[currentGameMode].field); let cellI = index" class="game-field-cell"
+             (click)="choseGameCell((rowI * gameSettings[currentGameMode].field) + cellI)"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <h2>Leader Board</h2>
+    <ul class="winners-list">
+      <li *ngFor="let winner of winners"><span>{{winner.winner}}</span> <span>{{winner.date}}</span></li>
+    </ul>
+  </div>
+</div>

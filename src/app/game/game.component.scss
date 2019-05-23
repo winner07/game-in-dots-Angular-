@@ -1,0 +1,106 @@
+h2 {
+  margin-bottom: 1em;
+  line-height: 2em;
+}
+
+.container {
+  display: flex;
+
+  .col {
+    width: 50%;
+    padding: 100px 30px;
+  }
+}
+
+.controls {
+  display: flex;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  select,
+  input,
+  button {
+    margin: 3px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+  }
+
+  select {
+    background-color: #cfd8dc;
+    color: #7b8d93;
+  }
+
+  input {
+    background-color: #f3f3f3;
+    color: #7b8d93;
+  }
+
+  button {
+    padding-right: 30px;
+    padding-left: 30px;
+    background-color: #7b8d93;
+    color: #fff;
+    text-transform: uppercase;
+
+    &[disabled] {
+      opacity: .5;
+    }
+  }
+}
+
+.status-message {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.game-field {
+  display: table;
+  margin: 50px auto;
+  border-collapse: collapse;
+
+  &-row {
+    display: table-row;
+  }
+
+  &-cell {
+    display: table-cell;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #cfd8dc;
+
+    &_active {
+      background-color: aqua;
+    }
+
+    &_player-won {
+      background-color: #68ff69;
+    }
+
+    &_computer-won {
+      background-color: red;
+    }
+  }
+}
+
+.winners-list {
+  width: 400px;
+  list-style: none;
+  font-size: 20px;
+  font-weight: 500;
+
+  li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    padding: 10px;
+    background-color: #cfd8dc;
+    color: #7b8d93;
+
+    > span {
+      max-width: 50%;
+    }
+  }
+}
