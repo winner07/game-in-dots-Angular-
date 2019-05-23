@@ -18,6 +18,6 @@ export class DataService {
   }
 
   addWinner(winner) {
-    this.http.post<object>('../assets/data/winners.json', winner);
+    this.http.post<object>('../assets/data/winners.json', JSON.stringify(winner));
   }
 }
